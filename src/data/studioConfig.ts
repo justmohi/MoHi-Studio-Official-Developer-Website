@@ -24,9 +24,9 @@ const getEnv = (key: string, fallback: string): string => {
 export const STUDIO_CONFIG: StudioConfig = {
   developerName: 'MoHi Studio',
   officialDomain: getEnv('VITE_STUDIO_DOMAIN', 'https://mohistudio.pro.bd'),
-  // Editable placeholder for studio support & legal contact email
-  contactEmail: getEnv('VITE_STUDIO_CONTACT_EMAIL', 'contact@mohistudio.pro.bd'),
-  // Optional external form endpoint (leave empty unless a real backend/form webhook is configured)
+  // Confirmed contact inbox selected for the Formspree project.
+  contactEmail: getEnv('VITE_STUDIO_CONTACT_EMAIL', 'mohistudio95@gmail.com'),
+  // Optional external form endpoint. Keep empty until a real endpoint is configured.
   contactEndpoint: getEnv('VITE_CONTACT_ENDPOINT', ''),
   privacyLastUpdated: 'November 18, 2026',
   termsLastUpdated: 'November 18, 2026',
