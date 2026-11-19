@@ -73,7 +73,10 @@ export const ContactPage: React.FC = () => {
       try {
         const response = await fetch(STUDIO_CONFIG.contactEndpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
           body: JSON.stringify({
             name: formData.name.trim(),
             email: formData.email.trim(),
