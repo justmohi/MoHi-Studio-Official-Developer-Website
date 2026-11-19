@@ -1,0 +1,6 @@
+{
+  "name": "MoHi Studio — Official Developer Website",
+  "description": "Independent software and mobile game development studio creating engaging Android games and digital applications, including Arrow Flow Puzzle.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

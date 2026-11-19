@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var desc =
+            Object.getOwnPropertyDescriptor(window, 'fetch') ||
+            Object.getOwnPropertyDescriptor(Window.prototype, 'fetch');
+          if (desc && desc.configurable && (!desc.writable || !desc.set)) {
+            var currentFetch = window.fetch.bind(window);
+            Object.defineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: true,
+              get: function () {
+                return currentFetch;
+              },
+              set: function (fn) {
+                if (typeof fn === 'function') {
+                  currentFetch = fn;
+                }
+              }
+            });
+          }
+        } catch (_) {}
+
+        window.addEventListener(
+          'error',
+          function (event) {
+            if (
+              event &&
+              ((typeof event.filename === 'string' &&
+                event.filename.indexOf('chrome-extension://') === 0) ||
+                (typeof event.message === 'string' &&
+                  event.message.indexOf('Cannot set property fetch of #<Window>') !== -1))
+            ) {
+              event.stopImmediatePropagation();
+              event.preventDefault();
+            }
+          },
+          true
+        );
+      })();
+    </script>
+    <title>MoHi Studio — Official Developer Website</title>
+    <meta name="description" content="Independent software and mobile game development studio creating engaging Android games and digital applications, including Arrow Flow Puzzle." />
+    <link rel="canonical" href="https://mohistudio.pro.bd/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MoHi Studio" />
+    <meta property="og:url" content="https://mohistudio.pro.bd/" />
+    <meta property="og:title" content="MoHi Studio — Official Developer Website" />
+    <meta property="og:description" content="Independent software and mobile game development studio creating engaging Android games and digital applications, including Arrow Flow Puzzle." />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MoHi Studio — Official Developer Website" />
+    <meta name="twitter:description" content="Independent software and mobile game development studio creating engaging Android games and digital applications, including Arrow Flow Puzzle." />
+
+    <!-- Google Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://mohistudio.pro.bd/#organization",
+            "name": "MoHi Studio",
+            "url": "https://mohistudio.pro.bd",
+            "description": "An independent software and mobile game development studio creating engaging Android games and useful digital applications."
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Arrow Flow Puzzle",
+            "operatingSystem": "Android",
+            "applicationCategory": "GameApplication",
+            "applicationSubCategory": "Puzzle Game",
+            "identifier": "com.arrowflow.arrowflowpuzzle",
+            "author": {
+              "@id": "https://mohistudio.pro.bd/#organization"
+            },
+            "description": "A challenging arrow escape puzzle game where players solve increasingly complex arrow arrangements, plan escape sequences, and overcome strategic obstacles."
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="bg-[#060A14] text-[#F8FAFC] antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
