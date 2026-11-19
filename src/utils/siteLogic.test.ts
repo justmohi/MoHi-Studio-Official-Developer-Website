@@ -87,6 +87,12 @@ test('buildMailtoUri constructs properly encoded mailto link without pretending 
   assert.ok(uri.includes('alex%40example.com'));
 });
 
+test('production contact and store configuration use confirmed public details', () => {
+  assert.equal(STUDIO_CONFIG.contactEmail, 'mohistudio95@gmail.com');
+  assert.equal(APPLICATIONS_CATALOG[0].googlePlayUrl, 'https://play.google.com/store/apps/details?id=com.arrowflow.arrowflowpuzzle');
+  assert.equal(APPLICATIONS_CATALOG[0].isGooglePlayLinkPlaceholder, false);
+});
+
 test('filterApplications matches Arrow Flow Puzzle by package name and category', () => {
   const byPkg = filterApplications(APPLICATIONS_CATALOG, 'com.arrowflow.arrowflowpuzzle', 'all');
   assert.equal(byPkg.length, 1);
