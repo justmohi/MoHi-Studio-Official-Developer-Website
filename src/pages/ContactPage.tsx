@@ -73,7 +73,10 @@ export const ContactPage: React.FC = () => {
       try {
         const response = await fetch(STUDIO_CONFIG.contactEndpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
           body: JSON.stringify({
             name: formData.name.trim(),
             email: formData.email.trim(),
@@ -175,7 +178,7 @@ export const ContactPage: React.FC = () => {
                   {STUDIO_CONFIG.officialDomain}
                 </p>
                 <p className="text-xs text-slate-400">
-                  Verified developer website for Google Play Console and application support.
+                  Official developer domain configured for Google Play Console and application support.
                 </p>
               </div>
             </div>

@@ -65,7 +65,7 @@ export const APPLICATIONS_CATALOG: StudioApplication[] = [
     ],
     iconUrl: '/src/assets/images/arrow_flow_app_icon_1795063019687.jpg',
     googlePlayUrl: getPlayUrl(),
-    isGooglePlayLinkPlaceholder: true,
+    isGooglePlayLinkPlaceholder: false,
     privacyPolicyPath: '/privacy-policy',
     supportEmail: 'contact@mohistudio.pro.bd',
     features: [
