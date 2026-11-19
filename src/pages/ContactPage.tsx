@@ -175,7 +175,7 @@ export const ContactPage: React.FC = () => {
                   {STUDIO_CONFIG.officialDomain}
                 </p>
                 <p className="text-xs text-slate-400">
-                  Verified developer website for Google Play Console and application support.
+                  Official developer domain configured for Google Play Console and application support.
                 </p>
               </div>
             </div>
